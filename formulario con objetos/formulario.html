@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nieves Borrero - Formulario completito</title>
+  <style type="text/css">
+    span{ color: red; }
+  </style>
+  <script src="./js/tester.js" type="text/javascript" charset="utf-8"></script>
+  <script src="./js/form.js" type="text/javascript" charset="utf-8"></script>
+</head>
+<body>
+  <noscript>
+    <p>Su navegador tiene deshabilitado JavaScript, actívelo para navegar por esta web</p>
+  </noscript>
+    <h2>Nieves Borrero - Formulario completito</h2>
+    <form>
+      <label>Nombre:</label><input type="text" id="nombreInput" placeholder="Introduce tu nombre"><span id="errNombre"></span><br><br>
+      <label>DNI:</label><input type="text" id="dniInput" placeholder="Introduce tu DNI"><span id="errDni"></span><br><br>
+      <label>Fecha de Nacimiento:</label><input type="text" id="fechaInput" placeholder="dd/mm/yy"><span id="errFecha"></span><br><br>
+      <label id="labelGenero">Género:</label><span id="errGenero"></span><br>
+      <input type="radio" name="radio" id="rb1">Mujer
+      <input type="radio" name="radio" id="rb2">Varón 
+      <input type="radio" name="radio" id="rb3">Otro<br><br>
+      <label>Email:</label><input type="text" id="emailInput"><span id="errEmail"></span><br><br>
+      <label>Teléfono:</laber><input type="text" id=telfInput><span id="errTelf"></span><br><br>
+      <label>Web:</label><input type="text" id="urlInput"><span id="errUrl"></span><br><br>
+      <label id='labelCurso'>Curso:</label><span id="errCurso"></span><br>
+      <select id='cursoInput'>
+        <option></option>
+        <option>1ASIR</option>
+        <option>1DAW</option>
+        <option>2ASIR</option>
+        <option>2DAW</option>
+      </select> <br><br>
+      
+      <label>Nº de cuenta:</label><input type="text" id=cuentaInput><span id="errCuenta"></span><br><br>
+      <label id="labelIntereses">Intereses:</label><span id="errIntereses"></span>
+      <input type="checkbox" id='js'>Javascript 
+      <input type="checkbox" id='php'>PHP
+      <input type="checkbox" id='java'>Java
+      <input type="checkbox" id='py'>Python
+      <br><br><input type="button" " id="enviar" value="enviar"><span id= ErrEnviar></span>
+     </form>
+</body>
+</html>
