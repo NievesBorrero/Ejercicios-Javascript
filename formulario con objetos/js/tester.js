@@ -1,22 +1,19 @@
 /**
+* Comprueba los inputs del formulario
 * @author Nieves Borrero Barea
 * @version 1.0
-*/
-
-/**
-* Objeto literal para comprobar los inputs del formulario
 */
 
 let tester ={
 	// closure
 	patrones: {
-		nombre: [/[A-Za-z]+/, 'No puede estar vacio'],
-		dni: [/^(\d{8})[-\s]?([A-Za-z])$/, 'Ocho dígitos y su letra correspondiente'],
-		fecha: [/^(0?[1-9]|[12][0-9]|3[01])[-/](0?[1-9]|1[012])[-/](\d{1,4})$/, 'Formatos válidos: 02/02/02 02-02-02 02-02-2002'],
-	    email: [/^[\w-\.]+@([\w]{2,}\.)+([\w-]{2,})$/, 'Formato válido: correo@gamil.com'],
-		telf: [/^[6789]\d{8}$/, "Nueve dígitos, empezando por 6, 7, 8 o 9"],
-	    url: [/^(http:\/\/)?www\.(\w)*\.(\w){2,3}/, 'Formatos válidos: www.web.es http://www.web.com'],
-	    cuenta: [/^(\d{4}[-\s]){2}\d{2}[-\s]\d{10}$/, 'Formato válido: xxxx xxxx xx xxxxxxxxxx (y con - en los espacios)']
+		nombre: [/[A-Za-z]+/, ' No puede estar vacio'],
+		dni: [/^(\d{8})[-\s]?([A-Za-z])$/, ' Ocho dígitos y su letra correspondiente'],
+		fecha: [/^(0?[1-9]|[12][0-9]|3[01])[-/](0?[1-9]|1[012])[-/](\d{1,4})$/, ' Formatos válidos: 02/02/02 02-02-02 02-02-2002'],
+	    email: [/^[\w-\.]+@([\w]{2,}\.)+([\w-]{2,})$/, ' Formato válido: correo@gmail.com'],
+		telf: [/^[6789]\d{8}$/, " Nueve dígitos, empezando por 6, 7, 8 o 9"],
+	    url: [/^(http:\/\/)?www\.(\w)*\.(\w){2,3}/, ' Formatos válidos: www.web.es http://www.web.com'],
+	    cuenta: [/^(\d{4}[-\s]){2}\d{2}[-\s]\d{10}$/, ' Formato válido: xxxx xxxx xx xxxxxxxxxx (y con - en los espacios)']
 	},
 
 	testNombre: function (texto){
@@ -80,7 +77,7 @@ let tester ={
 		letraValida = letra.substring(numero, numero+1);
 
 		if(letraValida != letraDni.toLowerCase())
-			return 'dni erróneo, la letra no coincide ';
+			return ' dni erróneo, la letra no coincide ';
 		return '';
 	},
 
@@ -91,9 +88,28 @@ let tester ={
 		let nuevaFecha = new Date (enTrocitos[2], enTrocitos[1], enTrocitos[0]);
 
 		if(nuevaFecha.getMonth()!=enTrocitos[1]/*-1*/) // PREGUNTAR
-			return 'Fecha no existe';
+			return ' Fecha no existe';
 		return '';
-	}
+	},
+
+	testCurso: function (curso){
+		if(curso=='1ASIR'||curso=='1DAW'||curso=='2ASIR'||curso=='2DAW')
+			return '';
+		return ' Selecciona un curso';
+	},
+
+	testGenero: function(rb1, rb2, rb3){
+		if(rb1.checked || rb2.checked || rb3.checked)
+			return '';
+		return ' Selecciona un género';
+	},
+
+	testIntereses: function(checkJs, checkPhp, checkPy, checkJava){
+		if(checkJs.checked||checkJava.checked||checkPy.checked||checkPhp.checked)
+			return '';
+		return ' Marca al menos un interés';
+}
+
 
 	
 }

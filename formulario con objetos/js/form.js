@@ -5,8 +5,8 @@
 */
 
 // Declaración de controles
-let campoDni, campoNombre, campoFecha, campoEmail, campoTelf, campoUrl, campoCuenta, campoCurso;
-let	rb1, rb2, rb3, checkJs, checkPhp, checkPy, checkJava, enviar;
+let campoDni, campoNombre, campoFecha, campoEmail, campoTelf, campoUrl, campoCuenta, campoCurso, rb1, rb2, rb3, 
+	checkJs, checkPhp, checkPy, checkJava, enviar;
 // Declaración de errores
 let errNombre, errDni, errFecha, errEmail, errTelf, errUrl, errCuenta, errCurso, errGenero, errIntereses, errEnviar;
 
@@ -43,6 +43,77 @@ let url = function(input, error){
 let cuenta = function(input, error){
 	let cuenta = input.value.trim();
 	error.innerHTML =tester.testCuenta(cuenta);
+}
+
+let curso = function(input, error){
+	let curso = input.value.trim();
+	error.innerHTML = tester.testCurso(curso);
+}
+
+let genero = function(input1, input2, input3, error){
+	error.innerHTML = tester.testGenero(input1, input2, input3);
+}
+
+let intereses = function(input1, input2, input3, input4, error){
+	error.innerHTML = tester.testIntereses(input1, input2, input3, input4);
+}
+
+let comprobarTodo = function(){
+	let primerError = null;
+	let msjFecha = tester.testFecha(campoFecha.value.trim());
+	let msjDni = tester.testDni(campoDni.value.trim());
+	let msjNombre = tester.testNombre(campoNombre.value.trim());
+	let msjGenero = tester.testGenero(rb1, rb2, rb3);
+	let msjEmail = tester.testEmail(campoEmail.value.trim());
+	let msjTelf = tester.testTelf(campoTelf.value.trim());
+	let msjUrl = tester.testUrl(campoUrl.value.trim());
+	let msjCurso = tester.testCurso(campoCurso.value);
+	let msjCuenta = tester.testCuenta(campoCuenta.value.trim());
+	let msjIntereses = tester.testIntereses(checkJs, checkPhp, checkPy, checkJava);
+	if(msjIntereses!==''){
+		errIntereses.innerHTML=msjIntereses;
+		primerError = checkJs;
+	}
+	if(msjCuenta!==''){
+		errCuenta.innerHTML=msjCuenta;
+		primerError = campoCuenta;
+	}
+	if(msjCurso!==''){
+		errCurso.innerHTML=msjCurso;
+		primerError = campoCurso;
+	}
+	if(msjUrl!==''){
+		errUrl.innerHTML=msjUrl;
+		primerError = campoUrl;
+	}
+	if(msjTelf!==''){
+		errTelf.innerHTML=msjTelf;
+		primerError = campoTelf;
+	}
+	if(msjEmail!==''){
+		errEmail.innerHTML=msjEmail;
+		primerError = campoEmail;
+	}
+	if(msjGenero!==''){
+		errGenero.innerHTML=msjGenero;
+		primerError = rb1;
+	}
+	if(msjFecha!==''){
+		errFecha.innerHTML=msjFecha;
+		primerError = campoFecha;
+	}
+	if(msjDni!==''){
+		errDni.innerHTML= msjDni;
+		primerError = campoDni;
+	}
+	if(msjNombre!==''){
+		errNombre.innerHTML = msjNombre;
+		primerError = campoNombre;
+	}
+	if(primerError==null)
+		document.location.href="enviado.html";
+	else
+		primerError.focus();
 }
 
 
@@ -89,7 +160,12 @@ let init = function(){
 	campoTelf.addEventListener('blur', telf.bind(null, campoTelf, errTelf));
 	campoUrl.addEventListener('blur', url.bind(null, campoUrl, errUrl));
 	campoCuenta.addEventListener('blur', cuenta.bind(null, campoCuenta, errCuenta));
-
+	campoCurso.addEventListener('blur', curso.bind(null, campoCurso, errCurso));
+	rb1.addEventListener('blur', genero.bind(null, rb1, rb2, rb3, errGenero));
+	rb2.addEventListener('blur', genero.bind(null, rb1, rb2, rb3, errGenero));
+	rb3.addEventListener('blur', genero.bind(null, rb1, rb2, rb3, errGenero));
+	checkPy.addEventListener('blur', intereses.bind(null, checkJs, checkPhp, checkPy, checkJava, errIntereses));
+	enviar.addEventListener('click', comprobarTodo);
 }
 
 
