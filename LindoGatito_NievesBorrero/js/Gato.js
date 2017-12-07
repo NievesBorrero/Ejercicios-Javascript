@@ -1,4 +1,6 @@
 /**
+* PSEUDOCLASES - PROTOTYPE
+*
 * Crea una clase Gato, y a partir de ella crea tantos gatos como quiera el usuario.
 Cada gato tendrá un nombre, una fecha de nacimiento, una raza y un peso (1-15). Cada vez que crees un objeto gato aparecerá 
 una ventana nueva con una imagen que cambiará en función de su estado (comiendo, durmiendo y jugando, que es su estado habitual). 
@@ -13,6 +15,7 @@ El usuario podrá averiguar la edad del gato partiendo de un evento.
 
 
 function Gato(nombre, raza, peso, mes, anio){
+		this.id = Gato.prototype.id++;
 		this.nombre=nombre;
 		this.raza=raza;
 		this.setPeso(peso);
@@ -22,6 +25,7 @@ function Gato(nombre, raza, peso, mes, anio){
 		this.estaVivo=true;
 	}
 
+Gato.prototype.id=1,
 Gato.prototype.max_peso=15,
 Gato.prototype.min_peso=0.5,
 Gato.prototype.gordo=10,
@@ -37,7 +41,6 @@ Gato.prototype.comer = function(){
 	
 };
 
-//CONTROLAR CON EXCEPCIÓN ESTO Y LO DEMÁS
 Gato.prototype.setPeso = function(peso){
 		this.peso = peso;
 		if(this.peso >= this.gordo && this.estado==='comiendo')
