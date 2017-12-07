@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Nieves Borrero - Lindo Gatito</title>
+  <link rel="stylesheet" href="./css/normalize.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+  <noscript>
+    <p>Su navegador tiene deshabilitado JavaScript, actívelo para navegar por esta web</p>
+  </noscript>
+    <h3>Lindo Gatito</h3>
+    <div>
+    <img id="imagen" src="./images/durmiendo.gif" alt="Gatete">
+    </div>
+    <form>
+    <fieldset>
+      <legend>FICHA GATO</legend>
+      <label>Nombre:</label><input type="text" id="nombre" disabled="disabled"><br><br>
+      <label>Estado:</label><input type="text" id="estado" disabled="disabled"><br><br>
+      <label>Raza:</label><input type="text" id="raza" disabled="disabled"><br><br>
+      <label>Peso:</label><input type="number" step=".1" id="peso" disabled="disabled"><br><br>
+      <input type="button" " id="btnEdad" value="Edad"><input type="text" id="edad" disabled="disabled"><br><br>
+      <span id="aviso"></span>
+     </fieldset>
+     </form>
+     <form> 
+     <fieldset>
+       <legend>Acciones</legend> 
+      <input type="button" " id="comer" value="Dar comida">
+      <input type="button" " id="jugar" value="Jugar">
+      <input type="button" " id="dormir" value="Dormir">
+     </fieldset>
+    </form>
+  </div>  
+</body>
+<script src="./js/cargarGato.js" type="text/javascript" charset="utf-8"></script>
+</html>
